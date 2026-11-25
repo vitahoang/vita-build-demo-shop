@@ -29,8 +29,8 @@ describe("cartTotal", () => {
     ).toBe(4200);
   });
 
-  // Known bug (spec §12): the cart total ignores quantity. Remove `.skip` once it is fixed.
-  it.skip("counts every unit when a quantity goes from 1 to 3", () => {
+  // Regression test for the cart total ignoring quantity.
+  it("counts every unit when a quantity goes from 1 to 3", () => {
     expect(cartTotal([{ unitPrice: 2400, quantity: 3 }])).toBe(7200);
   });
 });
