@@ -12,6 +12,8 @@ test("quantity controls update the cart and checkout can be completed", async ({
   await page.getByRole("button", { name: "Increase Stoneware mug quantity" }).click();
   await expect(page.getByRole("spinbutton", { name: "Stoneware mug quantity" })).toHaveValue("3");
   await expect(page.getByRole("link", { name: "Cart, 3 items" })).toBeVisible();
+  await expect(page.locator(".line-price")).toHaveText("$72.00");
+  await expect(page.locator(".cart-summary strong").first()).toHaveText("$72.00");
   await page.getByRole("link", { name: "Checkout" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("shopper@example.com");
   await page.getByRole("button", { name: "Place order" }).click();

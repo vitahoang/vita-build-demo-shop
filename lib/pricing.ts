@@ -10,5 +10,5 @@ export function lineTotal(line: PricedLine): number {
 }
 
 export function cartTotal(lines: PricedLine[]): number {
-  return lines.reduce((sum, line) => sum + line.unitPrice, 0);
+  return lines.reduce((sum, line) => sum + lineTotal(line), 0);
 }
